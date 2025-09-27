@@ -1,14 +1,17 @@
 # Anti-Theft-Alert-System-using-Tilt-Sensor
 
-## Aim: To measure the tilt Sensor using SW200D with Arduino UNO Board/ESP-32 using Tinker CAD.
+## Aim: 
+To measure the tilt Sensor using SW200D with Arduino UNO Board/ESP-32 using Tinker CAD.
 
 ## Hardware / Software Tools required:
-	PC/ Laptop with Internet connection
+PC/ Laptop with Internet connection
   Tinker CAD tool (Online)
 	Arduino UNO Board/ESP-32
 	Tilt sensor(SW200D)
 
 ## Circuit Diagram:
+<img width="1515" height="610" alt="image" src="https://github.com/user-attachments/assets/253cda37-eb2a-4475-9d76-acef759e367b" />
+
  
 ## Theory :
  The Arduino Uno is powered by the ATmega328P, an 8-bit microcontroller that runs at 16 MHz. It has 32 KB of flash memory, 2 KB of SRAM, and 1 KB of EEPROM. The board has 14 digital I/O pins (of which 6 can be used as PWM outputs) and 6 analog input pins. These pins allow the board to interface with various sensors, actuators, and other devices.The Arduino Uno can be powered via a USB connection or an external power supply. The board has a built-in voltage regulator to manage power from 7 to 12 volts.
@@ -46,15 +49,44 @@ Step 7: Save Your Work
 •	Save the Circuit: Click "Save" to keep your circuit design and code for future use.
 
 ## Code:
+```
+#define SENSOR_PIN 2
+#define LED_PIN 13
+#define BUZZ_PIN 6
+void setup()
+{
 
+  pinMode(SENSOR_PIN, INPUT_PULLUP);
 
+  pinMode(BUZZ_PIN,OUTPUT);
+  pinMode(LED_PIN, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+
+  if (digitalRead(SENSOR_PIN) == LOW)
+  {
+    digitalWrite(BUZZ_PIN,HIGH);
+    digitalWrite(LED_PIN, HIGH);
+    Serial.println("alert");
+  }
+  else
+  {
+    digitalWrite(BUZZ_PIN,LOW);
+    digitalWrite(LED_PIN, LOW);
+    Serial.println("no alert");
+  }
+}
+```
 
 ## Output:
 
- 
-
+https://github.com/user-attachments/assets/26c94c7b-8248-4842-b3c9-ba1ea161ea90
 
 ## Result:
 
+Thus measure the Tilt Sensor using SW200D with Arduino UNO Board/ESP-32 using Tinker CAD has been Verified Successfully.
 Result: Thus measure the Tilt Sensor using SW200D with Arduino UNO Board/ESP-32 using Tinker CAD has been Verified Successfully.
 
